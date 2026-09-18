@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Emily Czyzycki — Finance student portfolio">
+  <title>Emily Czyzycki | Finance & Business</title>
+
+  <style>
+    :root {
+      --navy: #0b1f33;
+      --navy-2: #132d46;
+      --blue: #2f6fed;
+      --blue-light: #edf4ff;
+      --gold: #c7a45a;
+      --ink: #1e2937;
+      --muted: #667587;
+      --line: #dfe6ee;
+      --bg: #f6f8fb;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: 0 auto;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(223, 230, 238, 0.9);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(47, 111, 237, 0.13),
+          transparent 28%
+        ),
+        linear-gradient(135deg, #f8fafc 0%, #eef4fb 100%);
+      padding: 92px 0 86px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -170px;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(199, 164, 90, 0.28);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      color: var(--navy);
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 26px;
+    }
+
+    .statement {
+      max-width: 720px;
+      color: #4f6072;
+      font-size: 1.16rem;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 9px 22px rgba(11, 31, 51, 0.16);
+    }
+
+    .button-secondary {
+      background: white;
+      color: var(--navy);
+      border: 1px solid var(--line);
+    }
+
+    .headshot-frame {
+      display: flex;
+      justify-content: center;
+    }
+
+    .headshot {
+      width: 285px;
+      height: 285px;
+      object-fit: cover;
+      object-position: center 25%;
+      border-radius: 50%;
+      border: 9px solid white;
+      box-shadow: 0 22px 55px rgba(11, 31, 51, 0.18);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 88px 0;
+      scroll-margin-top: 72px;
+    }
+
+    .section-kicker {
+      color: var(--blue);
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: 2.35rem;
+      line-height: 1.15;
+      margin-bottom: 38px;
+      letter-spacing: -0.7px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .education {
+      background: var(--navy);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .education::before {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border: 1px solid rgba(199, 164, 90, 0.45);
+      border-radius: 50%;
+      right: -35px;
+      top: -35px;
+    }
+
+    .education-label {
+      color: #b9c9da;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .education h3 {
+      font-size: 1.35rem;
+      margin: 10px 0 5px;
+    }
+
+    .education p {
+      color: #d7e0ea;
+      font-size: 0.94rem;
+      margin-bottom: 4px;
+    }
+
+    .education .gpa {
+      color: #e2c37a;
+      font-weight: 800;
+      margin-top: 14px;
+    }
+
+    .coursework {
+      margin-top: 46px;
+    }
+
+    .coursework h3 {
+      color: var(--navy);
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+    }
+
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .course {
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      color: #526274;
+      font-size: 0.82rem;
+      background: #fff;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-section {
+      background: var(--bg);
+    }
+
+    .skills-intro {
+      max-width: 680px;
+      color: var(--muted);
+      margin-top: -22px;
+      margin-bottom: 32px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+    }
+
+    .skill {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 17px 12px;
+      text-align: center;
+      color: var(--navy);
+      font-size: 0.88rem;
+      font-weight: 750;
+      transition: 0.2s;
+    }
+
+    .skill:hover {
+      transform: translateY(-3px);
+      border-color: #c8d7ea;
+      box-shadow: 0 12px 25px rgba(11, 31, 51, 0.07);
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 31px;
+      background: white;
+      box-shadow: 0 8px 25px rgba(11, 31, 51, 0.045);
+      transition: 0.2s;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 35px rgba(11, 31, 51, 0.09);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 1.7px;
+    }
+
+    .project-type {
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      color: var(--navy);
+      font-size: 1.35rem;
+      line-height: 1.25;
+      margin: 7px 0 13px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 21px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 23px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      background: var(--blue-light);
+      color: #315da4;
+      border-radius: 20px;
+      font-size: 0.69rem;
+      font-weight: 800;
+    }
+
+    .project-link {
+      color: var(--blue);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    .experience-section {
+      background: var(--bg);
+    }
+
+    .experience {
+      max-width: 850px;
+    }
+
+    .experience-item {
+      position: relative;
+      border-left: 2px solid #cdd8e5;
+      padding: 0 0 34px 28px;
+    }
+
+    .experience-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .experience-item::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 3px;
+      width: 10px;
+      height: 10px;
+      background: var(--blue);
+      border: 2px solid var(--bg);
+      border-radius: 50%;
+    }
+
+    .date {
+      color: var(--blue);
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .experience-item h3 {
+      color: var(--navy);
+      margin: 5px 0 2px;
+      font-size: 1.1rem;
+    }
+
+    .experience-item p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      color: white;
+      border-radius: 14px;
+      padding: 58px 35px;
+      text-align: center;
+    }
+
+    .contact-card::before,
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(199, 164, 90, 0.28);
+      border-radius: 50%;
+    }
+
+    .contact-card::before {
+      width: 230px;
+      height: 230px;
+      left: -120px;
+      top: -130px;
+    }
+
+    .contact-card::after {
+      width: 300px;
+      height: 300px;
+      right: -160px;
+      bottom: -190px;
+    }
+
+    .contact-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card h2 {
+      font-size: 2.2rem;
+      margin-bottom: 9px;
+    }
+
+    .contact-card p {
+      color: #d3deea;
+      margin-bottom: 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-link {
+      background: white;
+      color: var(--navy);
+      padding: 11px 18px;
+      border-radius: 7px;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 820px) {
+
+      .hero-grid,
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 45px;
+      }
+
+      .headshot-frame {
+        order: -1;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      .nav-inner {
+        flex-direction: column;
+        padding: 15px 0;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 13px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links a {
+        font-size: 0.72rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+        letter-spacing: -2px;
+      }
+
+      .statement {
+        font-size: 1rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .headshot {
+        width: 225px;
+        height: 225px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#home" class="brand">
+        Emily <span>Czyzycki</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO / PERSONAL STATEMENT -->
+  <header class="hero" id="home">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <p class="eyebrow">
+          Finance • Business • Analytics
+        </p>
+
+        <h1>
+          Emily<br>
+          Czyzycki
+        </h1>
+
+        <p class="statement">
+          Finance student at Rutgers Business School with a strong foundation
+          in business, data analysis, and leadership, seeking to apply
+          analytical and problem-solving skills in a professional environment.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#projects" class="button button-primary">
+            Explore My Work
+          </a>
+
+          <a href="#contact" class="button button-secondary">
+            Connect With Me
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="headshot-frame">
+
+        <img
+          src="headshot.jpeg"
+          alt="Professional headshot of Emily Czyzycki"
+          class="headshot"
+        >
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="container">
+
+      <p class="section-kicker">
+        01 — About
+      </p>
+
+      <h2 class="section-title">
+        Background
+      </h2>
+
+
+      <div class="about-grid">
+
+        <div class="about-copy">
+
+          <p>
+            I am a Finance student at Rutgers Business School with an interest
+            in finance, business strategy, and data analysis.
+          </p>
+
+          <p>
+            Through my coursework, I have developed experience with Microsoft
+            Excel, Java, HTML, business statistics, management, and supply
+            chain concepts.
+          </p>
+
+          <p>
+            My professional experience has also helped me develop leadership,
+            communication, problem-solving, and time-management skills in
+            fast-paced environments.
+          </p>
+
+        </div>
+
+
+        <div class="education">
+
+          <p class="education-label">
+            Education
+          </p>
+
+          <h3>
+            Rutgers Business School
+          </h3>
+
+          <p>
+            Rutgers, The State University of New Jersey
+          </p>
+
+          <p>
+            <strong>Bachelor of Science in Finance</strong>
+          </p>
+
+          <p>
+            New Brunswick, NJ • Expected May 2029
+          </p>
+
+          <p class="gpa">
+            GPA: 3.91
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- COURSEWORK -->
+
+      <div class="coursework">
+
+        <h3>
+          Relevant Coursework
+        </h3>
+
+        <div class="course-list">
+
+          <span class="course">
+            Intro to Management
+          </span>
+
+          <span class="course">
+            Intro to Business Statistics
+          </span>
+
+          <span class="course">
+            Calculus I
+          </span>
+
+          <span class="course">
+            Computer Applications for Business
+          </span>
+
+          <span class="course">
+            Intro to Supply Chain Management
+          </span>
+
+          <span class="course">
+            Management Skills
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills-section">
+
+    <div class="container">
+
+      <p class="section-kicker">
+        02 — Skills
+      </p>
+
+      <h2 class="section-title">
+        Skills & Tools
+      </h2>
+
+      <p class="skills-intro">
+        Technical, analytical, and professional skills developed through
+        academic coursework and leadership experience.
+      </p>
+
+
+      <div class="skills-grid">
+
+        <div class="skill">Microsoft Excel</div>
+        <div class="skill">Data Analysis</div>
+        <div class="skill">Financial Analysis</div>
+        <div class="skill">Microsoft Office</div>
+        <div class="skill">Java</div>
+        <div class="skill">HTML</div>
+        <div class="skill">Leadership</div>
+        <div class="skill">Problem Solving</div>
+        <div class="skill">Communication</div>
+        <div class="skill">Teamwork</div>
+        <div class="skill">Time Management</div>
+        <div class="skill">Attention to Detail</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section id="projects">
+
+    <div class="container">
+
+      <p class="section-kicker">
+        03 — Projects
+      </p>
+
+      <h2 class="section-title">
+        Featured Work
+      </h2>
+
+
+      <div class="projects-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <article class="project">
+
+          <div class="project-top">
+
+            <span class="project-number">
+              PROJECT 01
+            </span>
+
+            <span class="project-type">
+              Business Strategy
+            </span>
+
+          </div>
+
+
+          <h3>
+            RU Formal — Business Strategy & Global Expansion
+          </h3>
+
+
+          <p>
+            Developed a global formalwear rental business concept for
+            university students and young professionals. Collaborated with
+            a team to develop the company's value proposition, financial
+            and strategic objectives, sustainability initiatives, employee
+            engagement strategies, operational processes, and international
+            expansion plan.
+          </p>
+
+
+          <div class="tags">
+
+            <span class="tag">
+              Business Strategy
+            </span>
+
+            <span class="tag">
+              Management
+            </span>
+
+            <span class="tag">
+              Finance
+            </span>
+
+            <span class="tag">
+              Teamwork
+            </span>
+
+          </div>
+
+
+          <a
+            href="RU_Formal_Presentation.pptx"
+            class="project-link"
+            target="_blank"
+          >
+            View Project Presentation →
+          </a>
+
+        </article>
+
+
+        <!-- PROJECT 2 -->
+
+        <article class="project">
+
+          <div class="project-top">
+
+            <span class="project-number">
+              PROJECT 02
+            </span>
+
+            <span class="project-type">
+              Data Analysis
+            </span>
+
+          </div>
+
+
+          <h3>
+            Sales Data Analysis — Microsoft Excel
+          </h3>
+
+
+          <p>
+            Analyzed business sales data using Microsoft Excel by creating
+            structured tables, applying filters and formulas, and developing
+            PivotTables and PivotCharts to evaluate sales, profit, quantity,
+            discounts, and product performance.
+          </p>
+
+
+          <div class="tags">
+
+            <span class="tag">
+              Excel
+            </span>
+
+            <span class="tag">
+              VLOOKUP
+            </span>
+
+            <span class="tag">
+              PivotTables
+            </span>
+
+            <span class="tag">
+              PivotCharts
+            </span>
+
+          </div>
+
+
+          <a
+            href="Sales_Data_Analysis.xlsx"
+            class="project-link"
+            target="_blank"
+          >
+            View Excel Project →
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience-section">
+
+    <div class="container">
+
+      <p class="section-kicker">
+        04 — Experience
+      </p>
+
+      <h2 class="section-title">
+        Leadership & Experience
+      </h2>
+
+
+      <div class="experience">
+
+
+        <div class="experience-item">
+
+          <span class="date">
+            October 2025 — Present
+          </span>
+
+          <h3>
+            Shift Lead — Crumbl
+          </h3>
+
+          <p>
+            Supervise and coordinate a team of 5–8 employees while managing
+            inventory and production, addressing customer concerns, overseeing
+            opening and closing procedures, and maintaining an organized and
+            efficient store environment.
+          </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <span class="date">
+            March 2024 — September 2025
+          </span>
+
+          <h3>
+            Crew Member — Jersey Mike's
+          </h3>
+
+          <p>
+            Provided customer service in a high-volume environment, operated
+            the POS system, assisted with cash management, and collaborated
+            with a team to meet daily operational goals.
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="contact-card">
+
+        <h2>
+          Let's Connect
+        </h2>
+
+        <p>
+          I am always interested in connecting with professionals,
+          recruiters, and fellow students.
+        </p>
+
+
+        <div class="contact-links">
+
+          <a
+            href="mailto:emilkacz@icloud.com"
+            class="contact-link"
+          >
+            Email Me
+          </a>
+
+
+          <a
+            href="https://www.linkedin.com/in/emily-czyzycki-a45b082b/"
+            class="contact-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+      © 2026 Emily Czyzycki • Personal Portfolio
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
